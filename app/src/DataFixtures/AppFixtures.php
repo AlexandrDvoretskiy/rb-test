@@ -15,6 +15,8 @@ class AppFixtures extends Fixture
 
         for ($i = 0; $i < 100; $i++) {
             $description = $faker->paragraph;
+
+            // The Description length in the Fixtures was left unchanged
             if (strlen($description) > 80) {
                 $description = substr($description, 0, 80) ;
             }
@@ -26,6 +28,7 @@ class AppFixtures extends Fixture
                 ->setPublishedAt($faker->dateTimeBetween('-30 years', 'now'))
                 ->setDescription($description)
                 ->setIsbn($faker->isbn13)
+                ->setCategoryId($faker->numberBetween(1, 3))
             ;
             $manager->persist($book);
         }
