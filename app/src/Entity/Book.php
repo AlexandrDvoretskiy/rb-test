@@ -35,6 +35,11 @@ class Book
     #[Assert\Regex(pattern: '/^\d{13}$/', message: 'The ISBN must be a valid ISBN-13 numbers format.')]
     private ?string $isbn = null;
 
+    #[ORM\Column(name: 'category_id', nullable: true)]
+    private ?int $categoryId = null;
+
+    public string $categoryTitle = "";
+
     public function getId(): ?int
     {
         return $this->id;
@@ -98,5 +103,25 @@ class Book
         $this->isbn = $isbn;
 
         return $this;
+    }
+
+    public function getCategoryId(): ?int
+    {
+        return $this->categoryId;
+    }
+
+    public function setCategoryId(?int $categoryId): void
+    {
+        $this->categoryId = $categoryId;
+    }
+
+    public function getCategoryTitle(): string
+    {
+        return $this->categoryTitle;
+    }
+
+    public function setCategoryTitle(string $categoryTitle): void
+    {
+        $this->categoryTitle = $categoryTitle;
     }
 }

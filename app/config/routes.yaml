@@ -3,3 +3,9 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+category-api:
+    resource:
+        path: ../categoryBundle/src/Controller/
+        namespace: CategoryBundle\Controller
+    type: attribute

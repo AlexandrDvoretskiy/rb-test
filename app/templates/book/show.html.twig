@@ -38,6 +38,12 @@
                 <th>Isbn</th>
                 <td>{{ book.isbn }}</td>
             </tr>
+            {% if book.categoryId is not null %}
+                <tr>
+                    <th>Category</th>
+                    <td>{{ book.categoryTitle }}</td>
+                </tr>
+            {% endif %}
         </tbody>
     </table>
 

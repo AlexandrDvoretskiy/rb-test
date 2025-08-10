@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Book;
 use App\Form\BookType;
 use App\Repository\BookRepository;
+use CategoryBundle\Domain\Service\CategoryService;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,6 +16,11 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/book')]
 final class BookController extends AbstractController
 {
+    public function __construct(
+        private readonly CategoryService $categoryService,
+    ) {
+    }
+
     #[Route(name: 'app_book_index', methods: ['GET'])]
     public function index(BookRepository $bookRepository, PaginatorInterface $paginator, Request $request): Response
     {
@@ -25,6 +31,18 @@ final class BookController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+
+        $arTitles = [];
+        foreach ($pagination as $book) {
+            if ($book->getCategoryId()) {
+                if (isset($arTitles[$book->getCategoryId()])) {
+                    $book->setCategoryTitle($arTitles[$book->getCategoryId()]);
+                } else {
+                    $book->setCategoryTitle($this->categoryService->getTitle($book->getCategoryId()));
+                    $arTitles[$book->getCategoryId()] = $book->getCategoryTitle();
+                }
+            }
+        }
 
         return $this->render('book/index.html.twig', [
             'pagination' => $pagination,
@@ -54,6 +72,10 @@ final class BookController extends AbstractController
     #[Route('/{id}', name: 'app_book_show', methods: ['GET'])]
     public function show(Book $book): Response
     {
+        if ($book->getCategoryId()) {
+            $book->setCategoryTitle($this->categoryService->getTitle($book->getCategoryId()));
+        }
+
         return $this->render('book/show.html.twig', [
             'book' => $book,
         ]);
