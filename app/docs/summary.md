@@ -17,8 +17,8 @@ Twig templates were modified to display changes.
 Added fixtures for categories and modified book fixtures
 
 CRUD-operations can be tested by using Postman:
-1. [RichBrains.postman_collection.json](/RichBrains.postman_collection.json)
-2. [RichBrains.postman_environment.json](/RichBrains.postman_environment.json)
+1. [RichBrains.postman_collection.json](RichBrains.postman_collection.json)
+2. [RichBrains.postman_environment.json](RichBrains.postman_environment.json)
 
 I also installed additional composer packages, such as:
 ```bash
