@@ -14,6 +14,8 @@ Namely, I added the ability to assign a category to each book.
 
 Twig templates were modified to display changes.
 
+Added fixtures for categories and modified book fixtures
+
 CRUD-operations can be tested by using Postman:
 1. [RichBrains.postman_collection.json](/RichBrains.postman_collection.json)
 2. [RichBrains.postman_environment.json](/RichBrains.postman_environment.json)
