@@ -9,7 +9,6 @@ use CategoryBundle\Domain\Entity\Category;
 use CategoryBundle\Infrastructure\Repository\CategoryRepository;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
-use Psr\Log\LoggerInterface;
 
 class CategoryService
 {
