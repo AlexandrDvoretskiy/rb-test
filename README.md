@@ -32,3 +32,7 @@ After the project has started, open your web browser and go to:
 http://localhost:8080/
 
 This will allow you to view the application.
+
+## Summary
+
+The task solution details are presented in a [summary.md](app/docs/summary.md)
