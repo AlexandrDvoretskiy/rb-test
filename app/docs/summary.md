@@ -14,7 +14,7 @@ Namely, I added the ability to assign a category to each book.
 
 Twig templates were modified to display changes.
 
-Added fixtures for categories and modified book fixtures
+Added fixtures for categories and modified book fixtures.
 
 CRUD-operations can be tested by using Postman:
 1. [RichBrains.postman_collection.json](RichBrains.postman_collection.json)
@@ -26,20 +26,18 @@ webmozart/assert
 symfony/serializer-pack
 ```
 
-## Task 2: Fix the Description Saving Problem
-
-I was able to identify and solve the description saving problem:
-1. The `Length` Doctrine ORM attribute was increased from 80 to 4096
-2. The `substr` php method was deleted from `app/src/Form/BookType.php`
-
-## Bonus point
-
 On top of that, I wrote a few tests using `PHPUnit`.
 
 Execution command:
 ```bash
 vendor/bin/phpunit --testdox
 ```
+
+## Task 2: Fix the Description Saving Problem
+
+I was able to identify and solve the description saving problem:
+1. The `Length` Doctrine ORM attribute was increased from 80 to 4096
+2. The `substr` php method was deleted from `app/src/Form/BookType.php`
 
 ## Challenges
 
