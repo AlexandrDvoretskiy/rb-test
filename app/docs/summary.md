@@ -26,6 +26,11 @@ webmozart/assert
 symfony/serializer-pack
 ```
 
+If you use Docker Desktop with WSL, run the following command to convert line separators to `LF` **before** cloning the repository:
+```bash
+git config --global core.autocrlf input
+```
+
 On top of that, I wrote a few tests using `PHPUnit`.
 
 Execution command:
@@ -46,4 +51,4 @@ I was able to identify and solve the description saving problem:
 
 ## Execution time 
 
-I spent about 12 hours on development, an hour and a half on creating the summary and around 4 hours on writing the tests.
+I spent about 13 hours on development, an hour and a half on creating the summary and around 4 hours on writing the tests.
